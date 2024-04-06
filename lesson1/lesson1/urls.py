@@ -17,9 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from hello import views
-#Импортируем из нашего приложения файл views.py который возвращает пользователю строку "Hello world"
+from hello import views #Импортируем из нашего приложения файл views.py который возвращает пользователю строку "Hello world"
 urlpatterns = [
+    #Создаем url где первая строка означает путь, а второая связывает функцию с запрсом
+    path('', views.index), 
+    path('profile/', views.profile), 
+    path('about/', views.about),
     path('admin/', admin.site.urls),
-    path('', views.index, name='home') #Добавляем url 
 ]
